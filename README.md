@@ -51,7 +51,6 @@ curl http://localhost:5000/emptybasket
 LanaShop
 └── .github/workflows/
     └── python-publish.yml
-.github/workflows
 ```
 I have used `GitHub Actions` to create a CI pipeline that creates a docker image and pushes it to `DockerHub`.<br/>
 Whenever we push to the `master branch`, a new docker image is created and sent to the `DockerHub` repo.
