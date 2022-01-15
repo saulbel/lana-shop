@@ -57,18 +57,18 @@ Whenever we push to the `master branch`, a new docker image is created and sent 
 To test this out we have to do the following: <br/>
 - We pull the latest docker's image available at our `DockerHub` repo.
 ```
-$ sudo docker pull saulbel/lanashop_dockerrepo:latest
+$ docker pull saulbel/lanashop_dockerrepo:latest
 ```
 - Then we check out our images
 ```
-$ sudo docker images
+$ docker images
 REPOSITORY                                                          TAG               IMAGE ID       CREATED              SIZE
 saulbel/lanashop_dockerrepo                                         latest            3cb13957a510   About a minute ago   647MB
 ```
 - Lastly we spin up our container
 ```
-$ sudo docker run -d -p 5000:5000  saulbel/lanashop_dockerrepo
-$ sudo docker ps
+$ docker run -d -p 5000:5000  saulbel/lanashop_dockerrepo
+$ docker ps
 CONTAINER ID   IMAGE                         COMMAND                  CREATED         STATUS         PORTS                                       NAMES
 877fdde2949e   saulbel/lanashop_dockerrepo   "python3 -m flask ru…"   3 seconds ago   Up 2 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   jovial_williamson
 ```
