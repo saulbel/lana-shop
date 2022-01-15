@@ -2,11 +2,11 @@
 ![1596726313289](https://user-images.githubusercontent.com/97754610/149635896-75c064af-ea96-43c1-b481-e1ab8b463dad.jpg)
 
 ### Prerequisites
-The things you need before starting.
-* Linux OS          --> I am gonna use an ubuntu 20.04 distro, `Zorin OS 16`.
+Things you need before starting:
+* Linux OS --> I am gonna use an ubuntu 20.04 distro, `Zorin OS 16`.
 * Python 3.x
-* Python IDE        --> `Pycharm`, `VSCode`.
-* `GitHub` account    --> both for pushing code and CI pipeline management using `GitHub Actions`.
+* Python IDE --> `Pycharm`, `VSCode`.
+* `GitHub` account --> both for pushing code and CI pipeline management using `GitHub Actions`.
 * `DockerHub` account.
 * API client such as `Postman`, `Insonmia` and of course, `CURL`.
 
@@ -34,7 +34,7 @@ Flask API
 └── GET         -->     http://localhost:5000/emptybasket   -->      empties the basket   
 ```
 
-### Curl examples to test endpoints
+### Curl examples
 ```
 curl http://localhost:5000/ping
 curl http://localhost:5000/products
@@ -47,10 +47,10 @@ curl http://localhost:5000/emptybasket
 ```
 
 ### GitHub Actions
-I have used GitHub Actions to create a CI pipeline that creates a docker image and pushes it to DockerHub.<br/>
-Whenever we push to the `master branch`, a new Docker image is created and sent to the DockerHub repo.
+I have used `GitHub Actions` to create a CI pipeline that creates a docker image and pushes it to `DockerHub`.<br/>
+Whenever we push to the `master branch`, a new docker image is created and sent to the `DockerHub` repo.
 To test this out we have to do the following: <br/>
-- We pull the latest docker's image available at our DockerHub repo.
+- We pull the latest docker's image available at our `DockerHub` repo.
 ```
 $ sudo docker pull saulbel/lanashop_dockerrepo:latest
 ```
@@ -83,4 +83,4 @@ OK
 ```
 
 ## Monitoring
-I decided to use `Prometheus + Grafana` for scrapping/showing the metrics. I would use `AlertManager + Karma dashboard` for alerts.
+I decided to use `Prometheus` + `Grafana` for scrapping/showing the metrics. I would use `AlertManager` + `Karma dashboard` for alerts.
