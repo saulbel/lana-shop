@@ -3,7 +3,7 @@
 
 ### Prerequisites
 The things you need before starting.
-* Linux OS          --> I am gonna use an ubuntu 20.04 distro, Zorin OS.
+* Linux OS          --> I am gonna use an ubuntu 20.04 distro, Zorin OS 16.
 * Python IDE        --> Pycharm, VSCode.
 * Python 3.x
 * GitHub account    --> both for pushing code and CI pipeline management using GitHub Actions.
@@ -50,17 +50,17 @@ curl http://localhost:5000/emptybasket
 I have used GitHub Actions to create a CI pipeline that creates a docker image and pushes it to DockerHub.<br/>
 Whenever we push to the `master branch`, a new Docker image is created and sent to the DockerHub repo.
 To test this out we have to do the following: <br/>
-1) We pull the latest docker's image available at our DockerHub repo.
+- We pull the latest docker's image available at our DockerHub repo.
 ```
 $ sudo docker pull saulbel/lanashop_dockerrepo:latest
 ```
-2) Then we check out our images
+- Then we check out our images
 ```
 $ sudo docker images
 REPOSITORY                                                          TAG               IMAGE ID       CREATED              SIZE
 saulbel/lanashop_dockerrepo                                         latest            3cb13957a510   About a minute ago   647MB
 ```
-3) Lastly we spin up our container
+- Lastly we spin up our container
 ```
 $ sudo docker run -d -p 5000:5000  saulbel/lanashop_dockerrepo
 $ sudo docker ps
@@ -69,9 +69,11 @@ CONTAINER ID   IMAGE                         COMMAND                  CREATED   
 ```
 
 ## Testing
+```
 Endpoints testing
 └── Tests
     └── tests.py
+```
 Once our container is up and running, we use tests.py to check out that all endpoints are working correctly.
 ```
 $ python tests.py 
@@ -81,4 +83,4 @@ OK
 ```
 
 ## Monitoring
-I decided to use Prometheus + Grafana for scrapping/showing the metrics. I would use AlertManager with Karma interface for alerts.
+I decided to use `Prometheus + Grafana` for scrapping/showing the metrics. I would use `AlertManager + Karma dashboard` for alerts.
