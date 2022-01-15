@@ -50,7 +50,7 @@ curl http://localhost:5000/emptybasket
 ```
 
 
-### Installation
+### Local Installation
 Once you have your Linux machine ready, your IDE configured and linked to Github and your Dockerhub account ready we can start with a simple app execution.
 
 First we are gonna install Docker in our ubuntu distro
@@ -94,9 +94,9 @@ CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS       
 14711b513a19   lanashop   "python3 -m flask ru…"   8 seconds ago   Up 8 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   recursing_germain
 ```
 6) Finally we can test out our little application
-```
 
 
+### CI Pipeline
 
 
 
