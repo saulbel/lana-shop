@@ -1,10 +1,6 @@
 FROM python:3.8-slim-buster
-RUN pip install --upgrade pip
-RUN adduser lanauser
-USER lanauser
-WORKDIR /home/lanauser
-COPY --chown=lanauser:lanauser requirements.txt requirements.txt
-RUN pip install --lanauser -r requirements.txt
-ENV PATH="/home/myuser/.local/bin:${PATH}"
-COPY --chown=lanauser:lanauser . .
+WORKDIR /python-docker
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+COPY . .
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
