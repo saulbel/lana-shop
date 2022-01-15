@@ -1,5 +1,4 @@
 import unittest
-
 import requests
 
 
@@ -51,3 +50,6 @@ class ApiTest(unittest.TestCase):
         self.assertEqual(r.status_code, 200)
         # It has to return 2 jsons
         self.assertEqual(len(r.json()), 2)
+
+if __name__ == '__main__':
+    unittest.main()
