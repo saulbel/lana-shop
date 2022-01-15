@@ -3,11 +3,11 @@
 
 ### Prerequisites
 The things you need before starting.
-* Linux OS --> I am gonna use an ubuntu 20.04 distro, Zorin OS.
-* Python IDE --> Pycharm, VSCode.
+* Linux OS          --> I am gonna use an ubuntu 20.04 distro, Zorin OS.
+* Python IDE        --> Pycharm, VSCode.
 * Python 3.x
-* GitHub account --> both for pushing code and for pipeline CI management using GitHub Actions.
-* Dockerhub account.
+* GitHub account    --> both for pushing code and CI pipeline management using GitHub Actions.
+* DockerHub account.
 * API client such as Postman, Insonmia and of course, CURL.
 
 ### Project structure
@@ -47,8 +47,8 @@ curl http://localhost:5000/emptybasket
 ```
 
 ### GitHub Actions
-I have used Github Actions to create a CI pipeline that creates a docker image and pushes it to DockerHub.<br/>
-Whenever we push to the `master branch`, a new Docker image is created and sent to DockerHub repo.
+I have used GitHub Actions to create a CI pipeline that creates a docker image and pushes it to DockerHub.<br/>
+Whenever we push to the `master branch`, a new Docker image is created and sent to the DockerHub repo.
 To test this out we have to do the following: <br/>
 1) We pull the latest docker's image available at our DockerHub repo.
 ```
