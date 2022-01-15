@@ -74,57 +74,21 @@ $ sudo docker ps
 CONTAINER ID   IMAGE                         COMMAND                  CREATED         STATUS         PORTS                                       NAMES
 877fdde2949e   saulbel/lanashop_dockerrepo   "python3 -m flask ru…"   3 seconds ago   Up 2 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   jovial_williamson
 ```
+## Testing
+Endpoints testing
+└── Tests
+    └── tests.py
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Once our container is up and running, we use tests.py to check out that all endpoints are working correctly.
 ```
-$ First step
-
-$ Another step
-$ Final step
+$ python tests.py 
+----------------------------------------------------------------------
+Ran 5 tests in 0.048s
+OK
 ```
 
-## Usage
+## Monitoring
+I decided to use Prometheus + Grafana for scrapping/showing the metrics. I would use AlertManager with Karma interface for alerts.
 
-A few examples of useful commands and/or tasks.
 
-```
-$ First example
-$ Second example
-$ And keep this in mind
-```
 
-## Deployment
-
-Additional notes on how to deploy this on a live or release system. Explaining the most important branches, what pipelines they trigger and how to update the database (if anything special).
-
-### Server
-
-* Live:
-* Release:
-* Development:
-
-### Branches
-
-* Master:
-* Feature:
-* Bugfix:
-* etc...
-
-## Additional Documentation and Acknowledgments
-
-* Project folder on server:
-* Confluence link:
-* Asana board:
-* etc...
