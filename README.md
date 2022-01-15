@@ -1,19 +1,14 @@
 # Lana's Shop
-This is guide to show how to build a simple API using Flask and configure CI to deploy the app on a Docker container.
-
 ![1596726313289](https://user-images.githubusercontent.com/97754610/149635896-75c064af-ea96-43c1-b481-e1ab8b463dad.jpg)
 
-## Getting Started
-
 ### Prerequisites
-
-The things you need before starting.
-* Linux OS --> I am gonna use an ubuntu 20.04 distro, Zorin OS.
-* Python IDE --> Pycharm, VSCode.
+Things you need before starting:
+* Linux OS --> I am gonna use an ubuntu 20.04 distro, `Zorin OS 16`.
 * Python 3.x
-* Github account --> both for pushing code and for pipeline CI management using github Actions.
-* Dockerhub account.
-* API client such as Postman, Insonmia and of course, CURL.
+* Python IDE --> `Pycharm`, `VSCode`.
+* `GitHub` account --> both for pushing code and CI pipeline management using `GitHub Actions`.
+* `DockerHub` account.
+* API client such as `Postman`, `Insonmia` and of course, `CURL`.
 
 ### Project structure
 ```
@@ -31,13 +26,15 @@ LanaShop
 ```
 Flask API
 ├── GET         -->     http://localhost:5000/ping          -->      checks if server is up and running
+├── GET         -->     http://localhost:5000/dashboard     -->      dashboard for monitoring (default credentials admin:admin)
 ├── GET         -->     http://localhost:5000/products      -->      returns all products in lana's shop
 ├── GET         -->     http://localhost:5000/basket        -->      returns the basket
 ├── POST        -->     http://localhost:5000/basket        -->      adds a product to the basket
 ├── GET         -->     http://localhost:5000/totalbasket   -->      returns the basket and the total price
 └── GET         -->     http://localhost:5000/emptybasket   -->      empties the basket   
 ```
-### Curl examples to test endpoints
+
+### Curl examples
 ```
 curl http://localhost:5000/ping
 curl http://localhost:5000/products
@@ -49,106 +46,46 @@ curl http://localhost:5000/totalbasket
 curl http://localhost:5000/emptybasket
 ```
 
-
-### Local Installation
-Once you have your Linux machine ready, your IDE configured and linked to Github and your Dockerhub account ready we can start with a simple app execution.
-
-First we are gonna install Docker in our ubuntu distro
+### GitHub Actions
 ```
-$ sudo apt-get update
-$ sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-$ echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+LanaShop
+└── .github/workflows/
+    └── python-publish.yml
 ```
-We are gonna download this whole repo using git clone although in this case it is private so we just download it as .zip.<br/>
-Now is when the fun begins:<br/>
-1) We unzip the project
+I have used `GitHub Actions` to create a CI pipeline that creates a docker image and pushes it to `DockerHub`.<br/>
+Whenever we push to the `master branch`, a new docker image is created and sent to the `DockerHub` repo.
+To test this out we have to do the following: <br/>
+- We pull the latest docker's image available at our `DockerHub` repo.
 ```
-$ unzip LanaShop-master.zip
-$ cd LanaShop-master/
+$ docker pull saulbel/lanashop_dockerrepo:latest
 ```
-2) We build our docker image
-```
-$ docker build --tag lanashop .
-```
-3) We check out our images
+- Then we check out our images
 ```
 $ docker images
-REPOSITORY         TAG               IMAGE ID       CREATED          SIZE
-lanashop           latest            66f4ec6c0a0f   41 seconds ago   414MB
+REPOSITORY                                                          TAG               IMAGE ID       CREATED              SIZE
+saulbel/lanashop_dockerrepo                                         latest            3cb13957a510   About a minute ago   647MB
 ```
-4) We run our container: -d to run in detached mode and -p to specify the port
+- Lastly we spin up our container
 ```
-$ docker run -d -p 5000:5000 lanashop
-```
-5) We can see our container is up and running
-```
-sudo docker ps
-CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS                                       NAMES
-14711b513a19   lanashop   "python3 -m flask ru…"   8 seconds ago   Up 8 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   recursing_germain
-```
-6) Finally we can test out our little application
-
-
-### CI Pipeline
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-$ First step
-
-$ Another step
-$ Final step
+$ docker run -d -p 5000:5000  saulbel/lanashop_dockerrepo
+$ docker ps
+CONTAINER ID   IMAGE                         COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+877fdde2949e   saulbel/lanashop_dockerrepo   "python3 -m flask ru…"   3 seconds ago   Up 2 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   jovial_williamson
 ```
 
-## Usage
-
-A few examples of useful commands and/or tasks.
-
+## Testing
 ```
-$ First example
-$ Second example
-$ And keep this in mind
+LanaShop
+└── Tests
+    └── tests.py
+```
+Once our container is up and running, we use tests.py to check out that all endpoints are working correctly.
+```
+$ python tests.py 
+----------------------------------------------------------------------
+Ran 5 tests in 0.048s
+OK
 ```
 
-## Deployment
-
-Additional notes on how to deploy this on a live or release system. Explaining the most important branches, what pipelines they trigger and how to update the database (if anything special).
-
-### Server
-
-* Live:
-* Release:
-* Development:
-
-### Branches
-
-* Master:
-* Feature:
-* Bugfix:
-* etc...
-
-## Additional Documentation and Acknowledgments
-
-* Project folder on server:
-* Confluence link:
-* Asana board:
-* etc...
+## Monitoring
+I decided to use `Prometheus` + `Grafana` for scrapping/showing the metrics. I would use `AlertManager` + `Karma dashboard` for alerts.
