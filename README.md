@@ -3,12 +3,12 @@
 
 ### Prerequisites
 The things you need before starting.
-* Linux OS          --> I am gonna use an ubuntu 20.04 distro, Zorin OS 16.
-* Python IDE        --> Pycharm, VSCode.
+* Linux OS          --> I am gonna use an ubuntu 20.04 distro, `Zorin OS 16`.
 * Python 3.x
-* GitHub account    --> both for pushing code and CI pipeline management using GitHub Actions.
-* DockerHub account.
-* API client such as Postman, Insonmia and of course, CURL.
+* Python IDE        --> `Pycharm`, `VSCode`.
+* `GitHub` account    --> both for pushing code and CI pipeline management using `GitHub Actions`.
+* `DockerHub` account.
+* API client such as `Postman`, `Insonmia` and of course, `CURL`.
 
 ### Project structure
 ```
