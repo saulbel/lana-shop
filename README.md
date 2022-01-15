@@ -1,6 +1,4 @@
 # Lana's Shop
-This is guide to show how to build a simple API using Flask and configure CI to deploy the app on a Docker container.
-
 ![1596726313289](https://user-images.githubusercontent.com/97754610/149635896-75c064af-ea96-43c1-b481-e1ab8b463dad.jpg)
 
 ### Prerequisites
