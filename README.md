@@ -8,7 +8,7 @@ Things you need before starting:
 * Python IDE --> `Pycharm`, `VSCode`.
 * `GitHub` account --> both for pushing code and CI pipeline management using `GitHub Actions`.
 * `DockerHub` account.
-* API client such as `Postman`, `Insonmia` and of course, `CURL`.
+* API client such as `Postman`, `Insomnia` and of course, `CURL`.
 
 ### Project structure
 ```
