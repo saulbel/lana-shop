@@ -1,16 +1,16 @@
 import unittest
+
 import requests
 
 
+# For testing all endpoints availability and number of returning jsons
 class ApiTest(unittest.TestCase):
     API_URL = "http://127.0.0.1:5000/"
     PRODUCTS_URL = "{}/products".format(API_URL)
     BASKET_URL = "{}/basket".format(API_URL)
     TOTALBASKET_URL = "{}/totalbasket".format(API_URL)
-    EMPTY_BASKET_URL = "{}/emptybasket".format(API_URL)
-    PRODUCT_OBJ1 = {"item": "PEN"}
-    PRODUCT_OBJ2 = {"item": "TSHIRT"}
-    PRODUCT_OBJ3 = {"item": "MUG"}
+    EMPTYBASKET_URL = "{}/emptybasket".format(API_URL)
+    DASHBOARD_URL = "{}/dashboard".format(API_URL)
 
     # GET for returning all products in lana's shop
     def test_getProducts(self):
@@ -26,17 +26,6 @@ class ApiTest(unittest.TestCase):
         # It has to return 2 jsons
         self.assertEqual(len(r.json()), 2)
 
-    # POST for putting an item in cart
-    def test_addProductToBasket(self):
-        r = requests.post(ApiTest.BASKET_URL, json=ApiTest.PRODUCT_OBJ1)
-        self.assertEqual(r.status_code, 200)
-        r = requests.post(ApiTest.BASKET_URL, json=ApiTest.PRODUCT_OBJ2)
-        self.assertEqual(r.status_code, 200)
-        r = requests.post(ApiTest.BASKET_URL, json=ApiTest.PRODUCT_OBJ3)
-        self.assertEqual(r.status_code, 200)
-        # It has to return 2 jsons
-        self.assertEqual(len(r.json()), 2)
-
     # GET for calculating total price
     def test_getTotalBasket(self):
         r = requests.get(ApiTest.TOTALBASKET_URL)
@@ -46,10 +35,15 @@ class ApiTest(unittest.TestCase):
 
     # GET for emptying the basket
     def test_removeBasket(self):
-        r = requests.get(ApiTest.EMPTY_BASKET_URL)
+        r = requests.get(ApiTest.EMPTYBASKET_URL)
         self.assertEqual(r.status_code, 200)
         # It has to return 2 jsons
         self.assertEqual(len(r.json()), 2)
+
+    # GET for emptying the basket
+    def test_dashboardEndpoint(self):
+        r = requests.get(ApiTest.DASHBOARD_URL)
+        self.assertEqual(r.status_code, 200)
 
 
 if __name__ == '__main__':

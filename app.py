@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request
 
 import flask_monitoringdashboard as dashboard
 
-from lanaproducts import basket
-from lanaproducts import products
+from products import basket
+from products import products
 
 app = Flask(__name__)
 dashboard.bind(app)
