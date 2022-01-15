@@ -51,7 +51,6 @@ curl http://localhost:5000/emptybasket
 ### GitHub Actions
 I have used Github Actions to create a CI pipeline that creates a docker image and pushes it to DockerHub.<br/>
 Whenever we push to the `master branch`, a new Docker image is created and sent to DockerHub repo.
-*If you want to try this out I cand handle to you my DockerHub credentials*
 To test this out we have to do the following: <br/>
 1) We pull the latest docker's image available at our DockerHub repo.
 ```
