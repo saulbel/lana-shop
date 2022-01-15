@@ -51,5 +51,6 @@ class ApiTest(unittest.TestCase):
         # It has to return 2 jsons
         self.assertEqual(len(r.json()), 2)
 
+
 if __name__ == '__main__':
     unittest.main()
