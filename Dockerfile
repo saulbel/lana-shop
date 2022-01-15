@@ -1,6 +1,6 @@
 FROM python:3.8-slim-buster
 RUN pip install --upgrade pip
-RUN adduser -D lanauser
+RUN adduser lanauser
 USER lanauser
 WORKDIR /home/lanauser
 COPY --chown=lanauser:lanauser requirements.txt requirements.txt
