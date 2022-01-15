@@ -17,11 +17,6 @@ jobs:
             virtualenv lanashop
             . lanashop/bin/activate
             pip install --no-cache-dir -r requirements.txt
-      - run:
-          name: Run Tests
-          command: |
-            . lanashop/bin/activate
-            python tests.py
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
