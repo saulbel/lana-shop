@@ -89,7 +89,7 @@ OK
 ```
 
 ## Monitoring
-I decided to use `Prometheus` + `Grafana` for scrapping/showing the metrics. I would use `node_exporter` for container's metrics and `AlertManager` + `Karma dashboard` for alerts.
+I decided to use `Prometheus` for scrapping/storing the metrics. I would use `Grafana` for showing those metrics, `node_exporter` for exposing system metrics and `AlertManager` + `Karma dashboard` for alert management.
 ```
 from prometheus_flask_exporter import PrometheusMetrics
 
