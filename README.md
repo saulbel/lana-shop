@@ -30,7 +30,7 @@ Flask API
 ├── GET         -->     http://localhost:5000/products      -->      returns all products in lana's shop
 ├── GET         -->     http://localhost:5000/basket        -->      returns the basket
 ├── POST        -->     http://localhost:5000/basket        -->      adds a product to the basket
-├── GET         -->     http://localhost:5000/totalbasket   -->      returns the basket and the total price
+├── GET         -->     http://localhost:5000/totalbasket   -->      returns the basket and total price
 └── GET         -->     http://localhost:5000/emptybasket   -->      empties the basket   
 ```
 
