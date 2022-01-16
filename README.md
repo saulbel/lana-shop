@@ -26,7 +26,7 @@ LanaShop
 ```
 Flask API
 ├── GET         -->     http://localhost:5000/ping          -->      checks if server is up and running
-├── GET         -->     http://localhost:5000/metrics       -->      exposing api metrics for Prometheus scraping
+├── GET         -->     http://localhost:5000/metrics       -->      exposing api metrics for Prometheus 
 ├── GET         -->     http://localhost:5000/products      -->      returns all products in lana's shop
 ├── GET         -->     http://localhost:5000/basket        -->      returns the basket
 ├── POST        -->     http://localhost:5000/basket        -->      adds a product to the basket
@@ -36,14 +36,15 @@ Flask API
 
 ### Curl examples
 ```
-curl http://localhost:5000/ping
-curl http://localhost:5000/products
-curl http://localhost:5000/basket
-curl -d '{"item": "MUG"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
-curl -d '{"item": "PEN"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
-curl -d '{"item": "TSHIRT"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
-curl http://localhost:5000/totalbasket
-curl http://localhost:5000/emptybasket
+$ curl http://localhost:5000/ping
+$ curl http://localhost:5000/metrics
+$ curl http://localhost:5000/products
+$ curl http://localhost:5000/basket
+$ curl -d '{"item": "MUG"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
+$ curl -d '{"item": "PEN"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
+$ curl -d '{"item": "TSHIRT"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
+$ curl http://localhost:5000/totalbasket
+$ curl http://localhost:5000/emptybasket
 ```
 
 ### GitHub Actions
@@ -62,8 +63,8 @@ $ docker pull saulbel/lanashop_dockerrepo:latest
 - Then we check out our images
 ```
 $ docker images
-REPOSITORY                                                          TAG               IMAGE ID       CREATED         SIZE
-saulbel/lanashop_dockerrepo                                         latest            011e10e59307   2 minutes ago   148MB
+REPOSITORY                                   TAG         IMAGE ID       CREATED         SIZE
+saulbel/lanashop_dockerrepo                  latest      011e10e59307   2 minutes ago   148MB
 ```
 - Lastly we spin up our container
 ```
@@ -95,7 +96,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 app = Flask(__name__)
 metrics = PrometheusMetrics(app, path='/metrics')
 
-# debug must be False if we want endpoint /metrics up 
+# debug must be False if we want endpoint '/metrics' up 
 if __name__ == '__main__':
     app.run(debug=False, port=5000)
     metrics.init_app(app)
