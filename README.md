@@ -18,7 +18,7 @@ LanaShop
 ├── products.py
 ├── README.md
 ├── requirements.txt
-└── Tests
+└── tests
     └── tests.py
 ```
 
