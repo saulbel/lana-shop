@@ -26,7 +26,7 @@ LanaShop
 ```
 Flask API
 ├── GET         -->     http://localhost:5000/ping          -->      checks if server is up and running
-├── GET         -->     http://localhost:5000/metrics       -->      exposing api metrics for Prometheus scraping
+├── GET         -->     http://localhost:5000/metrics       -->      exposing api metrics for Prometheus 
 ├── GET         -->     http://localhost:5000/products      -->      returns all products in lana's shop
 ├── GET         -->     http://localhost:5000/basket        -->      returns the basket
 ├── POST        -->     http://localhost:5000/basket        -->      adds a product to the basket
@@ -62,8 +62,8 @@ $ docker pull saulbel/lanashop_dockerrepo:latest
 - Then we check out our images
 ```
 $ docker images
-REPOSITORY                                                          TAG               IMAGE ID       CREATED         SIZE
-saulbel/lanashop_dockerrepo                                         latest            011e10e59307   2 minutes ago   148MB
+REPOSITORY                                   TAG         IMAGE ID       CREATED         SIZE
+saulbel/lanashop_dockerrepo                  latest      011e10e59307   2 minutes ago   148MB
 ```
 - Lastly we spin up our container
 ```
