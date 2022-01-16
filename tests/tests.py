@@ -10,7 +10,6 @@ class ApiTest(unittest.TestCase):
     BASKET_URL = "{}/basket".format(API_URL)
     TOTALBASKET_URL = "{}/totalbasket".format(API_URL)
     EMPTYBASKET_URL = "{}/emptybasket".format(API_URL)
-    DASHBOARD_URL = "{}/dashboard".format(API_URL)
     METRICS_URL = "{}/metrics".format(API_URL)
 
     # GET for returning all products in lana's shop
@@ -41,12 +40,7 @@ class ApiTest(unittest.TestCase):
         # It has to return 2 jsons
         self.assertEqual(len(r.json()), 2)
 
-    # GET for emptying the basket
-    def test_dashboardEndpoint(self):
-        r = requests.get(ApiTest.DASHBOARD_URL)
-        self.assertEqual(r.status_code, 200)
-
-    # GET for emptying the basket
+    # GET for testing '/metrics' endpoint
     def test_PrometheusMetrics(self):
         r = requests.get(ApiTest.METRICS_URL)
         self.assertEqual(r.status_code, 200)
