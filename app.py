@@ -4,7 +4,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 from products import basket
 from products import products
 
-# For monitoring the app with both: flask_monitoringdashboard and Prometheus
+# Exposing api metrics for Prometheus to scrape from
 app = Flask(__name__)
 metrics = PrometheusMetrics(app, path='/metrics')
 
@@ -60,7 +60,7 @@ def removeBasket():
     return jsonify({"LANA'S SHOP": "Basket removed", "Basket": basket})
 
 
-# debug must be False if we want endpoint /metrics up for prometheus metrics
+# debug must be False if we want '/metrics' endpoint up
 if __name__ == '__main__':
     app.run(debug=False, port=5000)
     metrics.init_app(app)
