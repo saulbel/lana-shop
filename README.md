@@ -96,7 +96,7 @@ tests/tests.py::ApiTest::test_removeBasket PASSED                        [100%]
 ```
 
 ## Monitoring
-I decided to use `Prometheus` for scrapping/storing the metrics. I would use `Grafana` for showing those metrics, `node_exporter` for exposing system metrics and `AlertManager` + `Karma dashboard` for alert management.
+I decided to use `Prometheus` for scrapping/storing the metrics. I would use `Grafana` for showing those metrics, `node_exporter` for collecting/exposing system metrics and `AlertManager` + `Karma dashboard` for alert management.
 ```
 from prometheus_flask_exporter import PrometheusMetrics
 
