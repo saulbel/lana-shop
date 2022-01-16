@@ -77,7 +77,7 @@ afaba9138bcb   saulbel/lanashop_dockerrepo   "python3 -m flask ru…"   25 secon
 ## Testing
 ```
 LanaShop
-└── Tests
+└── tests
     └── tests.py
 ```
 Once our container is up and running, we use tests.py to check out that all endpoints are working correctly.
