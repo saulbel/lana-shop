@@ -85,14 +85,12 @@ Once our container is up and running, we use tests.py to check out that all endp
 $ python tests.py 
 ============================= test session starts =============================
 collecting ... collected 5 items
-
 tests/tests.py::ApiTest::test_getBasket PASSED                           [ 20%]
 tests/tests.py::ApiTest::test_getProducts PASSED                         [ 40%]
 tests/tests.py::ApiTest::test_getPrometheusMetrics PASSED                [ 60%]
-tests/tests.py::ApiTest::test_getTotalBasket PASSED                      [ 80%]
-tests/tests.py::ApiTest::test_getRemoveBasket PASSED                        [100%]
-
-============================== 5 passed in 0.08s ==============================
+tests/tests.py::ApiTest::test_getRemoveBasket PASSED                     [ 80%]
+tests/tests.py::ApiTest::test_getTotalBasket PASSED                      [100%]
+============================== 5 passed in 0.09s ==============================
 ```
 
 ## Monitoring
