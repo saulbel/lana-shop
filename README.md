@@ -96,7 +96,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 app = Flask(__name__)
 metrics = PrometheusMetrics(app, path='/metrics')
 
-# debug must be False if we want endpoint /metrics up 
+# debug must be False if we want endpoint '/metrics' up 
 if __name__ == '__main__':
     app.run(debug=False, port=5000)
     metrics.init_app(app)
