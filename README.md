@@ -62,15 +62,15 @@ $ docker pull saulbel/lanashop_dockerrepo:latest
 - Then we check out our images
 ```
 $ docker images
-REPOSITORY                                                          TAG               IMAGE ID       CREATED              SIZE
-saulbel/lanashop_dockerrepo                                         latest            3cb13957a510   About a minute ago   647MB
+REPOSITORY                                                          TAG               IMAGE ID       CREATED         SIZE
+saulbel/lanashop_dockerrepo                                         latest            011e10e59307   2 minutes ago   148MB
 ```
 - Lastly we spin up our container
 ```
 $ docker run -d -p 5000:5000  saulbel/lanashop_dockerrepo
 $ docker ps
-CONTAINER ID   IMAGE                         COMMAND                  CREATED         STATUS         PORTS                                       NAMES
-877fdde2949e   saulbel/lanashop_dockerrepo   "python3 -m flask ru…"   3 seconds ago   Up 2 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   jovial_williamson
+CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+afaba9138bcb   saulbel/lanashop_dockerrepo   "python3 -m flask ru…"   25 seconds ago   Up 24 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   nervous_golick
 ```
 
 ## Testing
