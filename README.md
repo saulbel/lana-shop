@@ -36,14 +36,14 @@ Flask API
 
 ### Curl examples
 ```
-curl http://localhost:5000/ping
-curl http://localhost:5000/products
-curl http://localhost:5000/basket
-curl -d '{"item": "MUG"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
-curl -d '{"item": "PEN"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
-curl -d '{"item": "TSHIRT"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
-curl http://localhost:5000/totalbasket
-curl http://localhost:5000/emptybasket
+$ curl http://localhost:5000/ping
+$ curl http://localhost:5000/products
+$ curl http://localhost:5000/basket
+$ curl -d '{"item": "MUG"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
+$ curl -d '{"item": "PEN"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
+$ curl -d '{"item": "TSHIRT"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
+$ curl http://localhost:5000/totalbasket
+$ curl http://localhost:5000/emptybasket
 ```
 
 ### GitHub Actions
