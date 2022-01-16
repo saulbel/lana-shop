@@ -26,7 +26,7 @@ LanaShop
 ```
 Flask API
 ├── GET         -->     http://localhost:5000/ping          -->      checks if server is up and running
-├── GET         -->     http://localhost:5000/dashboard     -->      dashboard for monitoring (default credentials admin:admin)
+├── GET         -->     http://localhost:5000/metrics       -->      exposing api metrics for Prometheus scraping
 ├── GET         -->     http://localhost:5000/products      -->      returns all products in lana's shop
 ├── GET         -->     http://localhost:5000/basket        -->      returns the basket
 ├── POST        -->     http://localhost:5000/basket        -->      adds a product to the basket
@@ -89,3 +89,14 @@ OK
 
 ## Monitoring
 I decided to use `Prometheus` + `Grafana` for scrapping/showing the metrics. I would use `AlertManager` + `Karma dashboard` for alerts.
+```
+from prometheus_flask_exporter import PrometheusMetrics
+
+app = Flask(__name__)
+metrics = PrometheusMetrics(app, path='/metrics')
+
+# debug must be False if we want endpoint /metrics up 
+if __name__ == '__main__':
+    app.run(debug=False, port=5000)
+    metrics.init_app(app)
+```
