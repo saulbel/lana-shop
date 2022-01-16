@@ -37,6 +37,7 @@ Flask API
 ### Curl examples
 ```
 $ curl http://localhost:5000/ping
+$ curl http://localhost:5000/metrics
 $ curl http://localhost:5000/products
 $ curl http://localhost:5000/basket
 $ curl -d '{"item": "MUG"}' -H "Content-Type: application/json" -X POST http://localhost:5000/basket
