@@ -24,7 +24,7 @@ def getProducts():
 # GET for showing the cart
 @app.route('/basket', methods=['GET'])
 def getBasket():
-    return jsonify({"LANA'S SHOP": "This is your basket"}, {"Items": basket})
+    return jsonify({"LANA'S SHOP": "This is your basket"}, {"Basket": basket})
 
 
 # POST for putting an item in cart
@@ -33,8 +33,13 @@ def addProductToBasket():
     add_product = {
         "item": request.json['item'],
     }
-    basket.append(add_product)
-    return jsonify({"LANA'S SHOP": "Product added successfully to basket", "Basket": basket})
+    # Exception in case we try to add an incorrect product to basket
+    if (add_product["item"] != 'PEN' and add_product["item"] != 'TSHIRT' and add_product["item"] != 'MUG'):
+        return jsonify({"LANA'S SHOP": "Product not available"}, {"Basket": basket})
+    else:
+        print(add_product["item"])
+        basket.append(add_product)
+        return jsonify({"LANA'S SHOP": "Product added successfully to basket"}, {"Basket": basket})
 
 
 # GET for calculating total price
@@ -50,17 +55,22 @@ def getTotalBasket():
     # 25% of disscount in each Tshirt if 3 or more
     if (totalTshirt >= 3):
         totalPrice = totalPrice - (totalTshirt * 5)
-    return jsonify({"LANA'S SHOP": "This is your invoice"}, {"Items": basket}, {"Total": totalPrice})
+    return jsonify({"LANA'S SHOP": "This is your invoice"}, {"Basket": basket}, {"Total": totalPrice})
 
 
 # GET for emptying the basket
 @app.route('/emptybasket', methods=['GET'])
 def removeBasket():
-    basket.clear()
-    return jsonify({"LANA'S SHOP": "Basket removed", "Basket": basket})
+    basketDepth = len(basket)
+    # Exception in case basket is already cleared
+    if (basketDepth == 0):
+        return jsonify({"LANA'S SHOP": "Basket was already emptied"}, {"Basket": basket})
+    else:
+        basket.clear()
+        return jsonify({"LANA'S SHOP": "Basket removed"}, {"Basket": basket})
 
 
 # debug must be False if we want '/metrics' endpoint up
 if __name__ == '__main__':
-    app.run(debug=False, port=5000)
+    app.run(debug=True, port=5000)
     metrics.init_app(app)
