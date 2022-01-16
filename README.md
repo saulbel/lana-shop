@@ -83,9 +83,16 @@ LanaShop
 Once our container is up and running, we use tests.py to check out that all endpoints are working correctly.
 ```
 $ python tests.py 
-----------------------------------------------------------------------
-Ran 5 tests in 0.048s
-OK
+============================= test session starts =============================
+collecting ... collected 5 items
+
+tests/tests.py::ApiTest::test_getBasket PASSED                           [ 20%]
+tests/tests.py::ApiTest::test_getProducts PASSED                         [ 40%]
+tests/tests.py::ApiTest::test_getPrometheusMetrics PASSED                [ 60%]
+tests/tests.py::ApiTest::test_getTotalBasket PASSED                      [ 80%]
+tests/tests.py::ApiTest::test_removeBasket PASSED                        [100%]
+
+============================== 5 passed in 0.08s ==============================
 ```
 
 ## Monitoring

@@ -41,7 +41,7 @@ class ApiTest(unittest.TestCase):
         self.assertEqual(len(r.json()), 2)
 
     # GET for testing '/metrics' endpoint
-    def test_PrometheusMetrics(self):
+    def test_getPrometheusMetrics(self):
         r = requests.get(ApiTest.METRICS_URL)
         self.assertEqual(r.status_code, 200)
 
