@@ -1,12 +1,13 @@
 from flask import Flask, jsonify, request
-
-import flask_monitoringdashboard as dashboard
+from prometheus_flask_exporter import PrometheusMetrics
 
 from products import basket
 from products import products
 
+# For monitoring the app with both: flask_monitoringdashboard and Prometheus
 app = Flask(__name__)
-dashboard.bind(app)
+metrics = PrometheusMetrics(app, path='/metrics')
+
 
 # GET for testing up/down
 @app.route('/ping')
@@ -59,5 +60,7 @@ def removeBasket():
     return jsonify({"LANA'S SHOP": "Basket removed", "Basket": basket})
 
 
+# debug must be False if we want endpoint /metrics up for prometheus metrics
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
+    metrics.init_app(app)
