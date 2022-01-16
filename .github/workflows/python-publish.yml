@@ -17,7 +17,7 @@ jobs:
           uses: actions/setup-python@v1
           with:
             python-version: ${{matrix.python-version}}
-        - name: Install api dependencies
+        - name: Install API dependencies
           run: |
             python3 -m venv lanashopvenv
             source lanashopvenv/bin/activate
@@ -25,7 +25,7 @@ jobs:
             pip install -r requirements.txt
         - name: Check if docker installed or not
           run: docker run hello-world
-        - name: Push image to docker hub
+        - name: Push image to Docker Hub
           uses: docker/build-push-action/@v1
           with:
             username: ${{secrets.DOCKER_USERNAME}}
