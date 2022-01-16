@@ -1,7 +1,7 @@
 # Lana's Shop
 ![1596726313289](https://user-images.githubusercontent.com/97754610/149635896-75c064af-ea96-43c1-b481-e1ab8b463dad.jpg)
 
-### Prerequisites
+## Prerequisites
 Things you need before starting:
 * Linux OS --> I am gonna use an ubuntu 20.04 distro, `Zorin OS 16`.
 * Python 3.x
@@ -10,7 +10,7 @@ Things you need before starting:
 * `DockerHub` account.
 * API client such as `Postman`, `Insomnia` and of course, `CURL`.
 
-### Project structure
+## Project structure
 ```
 LanaShop
 ├── app.py
@@ -22,7 +22,7 @@ LanaShop
     └── tests.py
 ```
 
-### API's endpoints
+## API's endpoints
 ```
 Flask API
 ├── GET         -->     http://localhost:5000/ping          -->      checks if server is up and running
@@ -34,7 +34,7 @@ Flask API
 └── GET         -->     http://localhost:5000/emptybasket   -->      empties the basket   
 ```
 
-### Curl examples
+## Curl examples
 ```
 $ curl http://localhost:5000/ping
 $ curl http://localhost:5000/metrics
@@ -47,7 +47,7 @@ $ curl http://localhost:5000/totalbasket
 $ curl http://localhost:5000/emptybasket
 ```
 
-### GitHub Actions
+## GitHub Actions
 ```
 LanaShop
 └── .github/workflows/
