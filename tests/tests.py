@@ -34,7 +34,7 @@ class ApiTest(unittest.TestCase):
         self.assertEqual(len(r.json()), 3)
 
     # GET for emptying the basket
-    def test_removeBasket(self):
+    def test_getRemoveBasket(self):
         r = requests.get(ApiTest.EMPTYBASKET_URL)
         self.assertEqual(r.status_code, 200)
         # It has to return 2 jsons

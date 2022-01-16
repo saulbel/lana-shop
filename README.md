@@ -4,7 +4,7 @@
 ## Prerequisites
 Things you need before starting:
 * Linux OS --> I am gonna use an ubuntu 20.04 distro, `Zorin OS 16`.
-* Python 3.x
+* Python 3.8
 * Python IDE --> `Pycharm`, `VSCode`.
 * `GitHub` account --> both for pushing code and CI pipeline management using `GitHub Actions`.
 * `DockerHub` account.
@@ -90,7 +90,7 @@ tests/tests.py::ApiTest::test_getBasket PASSED                           [ 20%]
 tests/tests.py::ApiTest::test_getProducts PASSED                         [ 40%]
 tests/tests.py::ApiTest::test_getPrometheusMetrics PASSED                [ 60%]
 tests/tests.py::ApiTest::test_getTotalBasket PASSED                      [ 80%]
-tests/tests.py::ApiTest::test_removeBasket PASSED                        [100%]
+tests/tests.py::ApiTest::test_getRemoveBasket PASSED                        [100%]
 
 ============================== 5 passed in 0.08s ==============================
 ```
