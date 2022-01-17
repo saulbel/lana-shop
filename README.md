@@ -21,6 +21,7 @@ LanaShop
 └── tests
     └── tests.py
 ```
+
 ## API's endpoints
 ```
 Flask API
