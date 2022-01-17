@@ -98,6 +98,7 @@ I decided to use `Prometheus` for scrapping/storing the metrics. I would use `Gr
 ```
 from prometheus_flask_exporter import PrometheusMetrics
 
+# Exposing api metrics for Prometheus to scrape from
 app = Flask(__name__)
 metrics = PrometheusMetrics(app, path='/metrics')
 
