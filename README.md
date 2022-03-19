@@ -1,5 +1,37 @@
-# Lana's Shop
-![1596726313289](https://user-images.githubusercontent.com/97754610/149635896-75c064af-ea96-43c1-b481-e1ab8b463dad.jpg)
+# Python checkout basket
+## Checkout basket in Flask
+Our task is to implement a simple checkout HTTP API with the following operations:
+- Create a new checkout basket
+- Add a product to a basket
+- Get the total amount in a basket
+- Remove the basket
+
+The products are the following:
+```
+Code         | Name         |  Price
+-----------------------------------------------
+PEN          | Pen          |   5.00€
+TSHIRT       | T-Shirt      |  20.00€
+MUG          | Coffee Mug   |   7.50€
+```
+And the following conditions must be accomplished:
+ * The sales department thinks a buy 2 get 1 free promotion will work best (for each two of the same product, get the second free), and would like this to only apply to `PEN` items.
+
+ * The CFO insists that the best way to increase sales is with discounts on bulk purchases (buying x or more of a product, the price of that product is reduced), and requests that if you buy 3 or more `TSHIRT` items, the price per unit should be reduced by 25%.
+
+Examples:
+
+    Items: PEN, TSHIRT, MUG
+    Total: 32.50€
+
+    Items: PEN, TSHIRT, PEN
+    Total: 25.00€
+
+    Items: TSHIRT, TSHIRT, TSHIRT, PEN, TSHIRT
+    Total: 65.00€
+
+    Items: PEN, TSHIRT, PEN, PEN, MUG, TSHIRT, TSHIRT
+    Total: 62.50€
 
 ## Prerequisites
 Things you need before starting:
@@ -13,14 +45,16 @@ Things you need before starting:
 
 ## Project structure
 ```
-lana-shop
-├── app.py
-├── Dockerfile
-├── products.py
-├── README.md
-├── requirements.txt
-└── tests
-    └── tests.py
+python-checkout-basket
+|── app.py
+|── Dockerfile
+|── products.py
+|── README.md
+|── requirements.txt
+|── tests
+|    └── tests.py
+└── .github/workflows/
+     └── docker-publish.yml
 ```
 
 ## API's endpoints
@@ -28,7 +62,7 @@ lana-shop
 Flask API
 ├── GET         -->     http://localhost:5000/ping          -->      checks if server is up and running
 ├── GET         -->     http://localhost:5000/metrics       -->      exposing api metrics for Prometheus 
-├── GET         -->     http://localhost:5000/products      -->      returns all products in lana's shop
+├── GET         -->     http://localhost:5000/products      -->      returns all products in shop
 ├── GET         -->     http://localhost:5000/basket        -->      returns the basket
 ├── POST        -->     http://localhost:5000/basket        -->      adds a product to the basket
 ├── GET         -->     http://localhost:5000/totalbasket   -->      returns the basket and total price
@@ -50,7 +84,7 @@ $ curl http://localhost:5000/emptybasket
 
 ## GitHub Actions
 ```
-LanaShop
+python-checkout-basket
 └── .github/workflows/
     └── continuous-integration.yml
 ```
@@ -59,20 +93,20 @@ Whenever we push to the `master branch`, a new docker image is created and sent 
 To test this out we have to do the following: <br/>
 - We pull the latest docker's image available at our `DockerHub` repo.
 ```
-$ docker pull saulbel/lanashop_dockerrepo:latest
+$ docker pull saulbel/shop_dockerrepo:latest
 ```
 - Then we check out our images
 ```
 $ docker images
 REPOSITORY                                   TAG         IMAGE ID       CREATED         SIZE
-saulbel/lanashop_dockerrepo                  latest      011e10e59307   2 minutes ago   148MB
+saulbel/shop_dockerrepo                  latest      011e10e59307   2 minutes ago   148MB
 ```
 - Lastly we spin up our container
 ```
-$ docker run -d -p 5000:5000  saulbel/lanashop_dockerrepo
+$ docker run -d -p 5000:5000  saulbel/shop_dockerrepo
 $ docker ps
 CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS          PORTS                                       NAMES
-afaba9138bcb   saulbel/lanashop_dockerrepo   "python3 -m flask ru…"   25 seconds ago   Up 24 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   nervous_golick
+afaba9138bcb   saulbel/shop_dockerrepo   "python3 -m flask ru…"   25 seconds ago   Up 24 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   nervous_golick
 ```
 
 ## Testing
