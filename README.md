@@ -13,7 +13,7 @@ Things you need before starting:
 
 ## Project structure
 ```
-LanaShop
+lana-shop
 ├── app.py
 ├── Dockerfile
 ├── products.py
