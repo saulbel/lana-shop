@@ -12,19 +12,19 @@ metrics = PrometheusMetrics(app, path='/metrics')
 # GET for testing up/down
 @app.route('/ping')
 def ping():
-    return jsonify({"LANA'S SHOP": "Server up and running"})
+    return jsonify({"SAUL'S SHOP": "Server up and running"})
 
 
-# GET for returning all products in lana's shop
+# GET for returning all products in saul's shop
 @app.route('/products', methods=['GET'])
 def getProducts():
-    return jsonify({"LANA'S SHOP": "These are our products"}, {"Products": products})
+    return jsonify({"SAUL'S SHOP": "These are our products"}, {"Products": products})
 
 
 # GET for showing the cart
 @app.route('/basket', methods=['GET'])
 def getBasket():
-    return jsonify({"LANA'S SHOP": "This is your basket"}, {"Basket": basket})
+    return jsonify({"SAUL'S SHOP": "This is your basket"}, {"Basket": basket})
 
 
 # POST for putting an item in cart
@@ -35,10 +35,10 @@ def addProductToBasket():
     }
     # Exception in case we try to add an incorrect product to basket
     if (add_product["item"] != 'PEN' and add_product["item"] != 'TSHIRT' and add_product["item"] != 'MUG'):
-        return jsonify({"LANA'S SHOP": "Product not available"}, {"Basket": basket})
+        return jsonify({"SAUL'S SHOP": "Product not available"}, {"Basket": basket})
     else:
         basket.append(add_product)
-        return jsonify({"LANA'S SHOP": "Product added successfully to basket"}, {"Basket": basket})
+        return jsonify({"SAUL'S SHOP": "Product added successfully to basket"}, {"Basket": basket})
 
 
 # GET for calculating total price
@@ -61,7 +61,7 @@ def getTotalBasket():
     # 25% of disscount in each Tshirt if 3 or more
     if (totalTshirt >= 3):
         totalPrice = totalPrice - (totalTshirt * tshirtReducedPrice)
-    return jsonify({"LANA'S SHOP": "This is your invoice"}, {"Basket": basket}, {"Total": totalPrice})
+    return jsonify({"SAUL'S SHOP": "This is your invoice"}, {"Basket": basket}, {"Total": totalPrice})
 
 
 # GET for emptying the basket
@@ -70,10 +70,10 @@ def removeBasket():
     basketDepth = len(basket)
     # Exception in case basket is already cleared
     if (basketDepth == 0):
-        return jsonify({"LANA'S SHOP": "Basket was already emptied"}, {"Basket": basket})
+        return jsonify({"SAUL'S SHOP": "Basket was already emptied"}, {"Basket": basket})
     else:
         basket.clear()
-        return jsonify({"LANA'S SHOP": "Basket removed"}, {"Basket": basket})
+        return jsonify({"SAUL'S SHOP": "Basket removed"}, {"Basket": basket})
 
 
 # debug must be False if we want '/metrics' endpoint up
