@@ -111,7 +111,7 @@ afaba9138bcb   saulbel/shop_dockerrepo   "python3 -m flask ru…"   25 seconds a
 
 ## Testing
 ```
-LanaShop
+python-checkout-basket
 └── tests
     └── tests.py
 ```
