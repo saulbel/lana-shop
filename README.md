@@ -1,5 +1,5 @@
-# Python checkout basket
-## Checkout basket in Flask
+# Python shopping basket
+## Shopping basket in Flask
 Our task is to implement a simple checkout HTTP API with the following operations:
 - Create a new checkout basket
 - Add a product to a basket
@@ -45,7 +45,7 @@ Things you need before starting:
 
 ## Project structure
 ```
-python-checkout-basket
+python-shopping-basket
 |── app.py
 |── Dockerfile
 |── products.py
@@ -84,7 +84,7 @@ $ curl http://localhost:5000/emptybasket
 
 ## GitHub Actions
 ```
-python-checkout-basket
+python-shopping-basket
 └── .github/workflows/
     └── continuous-integration.yml
 ```
@@ -111,7 +111,7 @@ afaba9138bcb   saulbel/shop_dockerrepo   "python3 -m flask ru…"   25 seconds a
 
 ## Testing
 ```
-python-checkout-basket
+python-shopping-basket
 └── tests
     └── tests.py
 ```
