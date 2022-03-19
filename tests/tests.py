@@ -12,7 +12,7 @@ class ApiTest(unittest.TestCase):
     EMPTYBASKET_URL = "{}/emptybasket".format(API_URL)
     METRICS_URL = "{}/metrics".format(API_URL)
 
-    # GET for returning all products in lana's shop
+    # GET for returning all products in saul's shop
     def test_getProducts(self):
         r = requests.get(ApiTest.PRODUCTS_URL)
         self.assertEqual(r.status_code, 200)
