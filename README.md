@@ -105,14 +105,14 @@ $ docker pull saulbel/shop_dockerrepo:latest
 - Then we check out our images
 ```
 $ docker images
-REPOSITORY                                   TAG         IMAGE ID       CREATED         SIZE
+REPOSITORY                               TAG         IMAGE ID       CREATED         SIZE
 saulbel/shop_dockerrepo                  latest      011e10e59307   2 minutes ago   148MB
 ```
 - Lastly we spin up our container
 ```
 $ docker run -d -p 5000:5000  saulbel/shop_dockerrepo
 $ docker ps
-CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+CONTAINER ID   IMAGE                     COMMAND                  CREATED          STATUS          PORTS                                       NAMES
 afaba9138bcb   saulbel/shop_dockerrepo   "python3 -m flask ru…"   25 seconds ago   Up 24 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   nervous_golick
 ```
 
