@@ -33,6 +33,13 @@ Examples:
     Items: PEN, TSHIRT, PEN, PEN, MUG, TSHIRT, TSHIRT
     Total: 62.50€
 
+The solution must accomplish the following:
+- Build and execute in a Unix operating system using Docker
+- Create a CI pipeline to release the application
+- Unit/Functional tests
+- Curl examples to test the endpoints
+- Enable monitoring on the application
+
 ## Prerequisites
 Things you need before starting:
 * Linux OS --> I am gonna use an ubuntu 20.04 distro, `Zorin OS 16`
