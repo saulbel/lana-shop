@@ -61,7 +61,7 @@ python-shopping-basket
 |── tests
 |    └── tests.py
 └── .github/workflows/
-     └── docker-publish.yml
+     └── continuous-integration.yml
 ```
 
 ## API's endpoints
